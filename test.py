@@ -14,7 +14,7 @@ for i in range(101):
 print(a)
 """
 
-from test0508.demo002 import demo002
+from test0508 import demo002
 
 
 def demo001():
