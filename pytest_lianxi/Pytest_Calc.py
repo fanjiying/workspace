@@ -9,10 +9,13 @@ class TestCalc:
 
     @pytest.mark.parametrize("a,b,expected", [(9999,200005,210004), (1.03,0.02,1.05), (-9,-4,-13),(13,-4,9), (8,"qw","字符类型错误")])
     def test_add(self,a,b,expected):
-
-        result = self.calc.add(a, b)
-        print(result)
-        assert expected == result
+        try:
+            result = self.calc.add(a, b)
+        except:
+            result = "字符类型错误"
+        finally:
+            print(result)
+            assert expected == result
 
 
 
@@ -22,10 +25,9 @@ class TestCalc:
             result = self.calc.div(a, b)
         except :
             result = "输入数据不合法"
-        else:
-            assert expected == result
         finally:
             print(result)
+            assert expected == result
 
 
 if __name__ == '__main__':
